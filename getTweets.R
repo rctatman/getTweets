@@ -1,6 +1,6 @@
 # This script is an improved version, with more through documentation, of the 
 # one I used in the paper on scoiophonetic variation in variant spellings. If
-# you do use this script for your resaech, I'd apprecite it if you cited that
+# you do use this script for your research, I'd appreciate it if you cited that
 # paper.
 # 
 # Citation:
@@ -34,8 +34,8 @@
 library(twitteR)
 library(plyr)
 
-# Sign in to Twitter. You will need your own Twitter accoutn and API keys for 
-# this. You can get these by following the instruions here:
+# Sign in to Twitter. You will need your own Twitter account and API keys for 
+# this. You can get these by following the instructions here:
 # https://dev.twitter.com/oauth/overview/application-owner-access-tokens
 
 api_key <- "YOUR_API_KEY"
@@ -46,7 +46,7 @@ setup_twitter_oauth(api_key,api_secret,access_token,access_token_secret)
 
 #### Search Twitter ####
 
-# The function to search for Tweets is "searchTwitter". It retuns a pretty 
+# The function to search for Tweets is "searchTwitter". It returns a pretty 
 # unweildly matrix, so we're going to transform it into a dataframe instead. For
 # more info on the function:
 ?searchTwitter
@@ -57,12 +57,12 @@ TwitterTweets <- searchTwitter(searchString = "language", n=10, lang = "en")
 TwitterTweets.df = do.call("rbind",lapply(TwitterTweets,as.data.frame))
 
 # the Twitter search API (documentation: https://dev.twitter.com/rest/public/search)
-# is pretty sophisiticated. Some functionality that might be useful (this would
+# is pretty sophisticated. Some functionality that might be useful (this would
 # be put in the searchString argument):
 
 # - '"no dice"' will return tweets with the exact string "no dice"
 # - adding "filter:native_video" will return only tweets with videos
-# - including ":)" or ":(" will return tweets with postive or negative sentiment 
+# - including ":)" or ":(" will return tweets with positive or negative sentiment 
 # - including "?" will get you tweets with a question
 
 # finally, save our data to a CSV so we can analyze it later
