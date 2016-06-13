@@ -46,11 +46,13 @@ setup_twitter_oauth(api_key,api_secret,access_token,access_token_secret)
 
 #### Search Twitter ####
 
-# The function to search for Tweets is "searchTwitter". It retuns a pretty
-# unweildly matrix, so we're going to transform it into a dataframe instead.
+# The function to search for Tweets is "searchTwitter". It retuns a pretty 
+# unweildly matrix, so we're going to transform it into a dataframe instead. For
+# more info on the function:
+?searchTwitter
 
 # This query gets up to 10 tweets, in English, that include the string "language".
-# Note that quarying a large number of tweets with take a while. 
+# Note that quarying a large number of tweets will take a while. 
 TwitterTweets <- searchTwitter(searchString = "language", n=10, lang = "en") 
 TwitterTweets.df = do.call("rbind",lapply(TwitterTweets,as.data.frame))
 
